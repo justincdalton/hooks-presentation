@@ -1,8 +1,12 @@
 import {
   CodeSurferLayout,
   CodeSurferColumnLayout,
-} from "code-surfer";
-export { githubFull as theme } from "code-surfer";
+  Code,
+  Step,
+} from 'code-surfer';
+import FormLoader from './src/form-loader';
+
+export { vsDarkFull as theme } from 'code-surfer';
 
 # Hello 👋
 
@@ -10,88 +14,193 @@ You are using [MDX Deck](https://github.com/jxnblk/mdx-deck) and [Code Surfer](h
 
 ---
 
-<CodeSurferLayout>
+<FormLoader version="class.1" />
 
-```js title="This is a title"
-function hello(name) {
-  console.log("hello " + name);
-}
+---
 
-hello("world");
-```
+Let's build out that component as a class
 
-```js 1:3 subtitle="This is a subtitle"
-function hello(name) {
-  console.log("hello " + name);
-}
+---
 
-hello("world");
-```
+<CodeSurferColumnLayout sizes={[1, 2]}>
+  <Step>
+    <FormLoader version="class.2.1" />
+    <Code
+      code={require('!!raw-loader!./src/form.class.2.1.js').default}
+      lang="jsx"
+    />
+  </Step>
+  <Step>
+    <FormLoader version="class.2.1" />
+    <Code
+      code={require('!!raw-loader!./src/form.class.2.1.js').default}
+      lang="jsx"
+      focus="29:43"
+    />
+  </Step>
+  <Step>
+    <FormLoader version="class.2.1" />
+    <Code
+      code={require('!!raw-loader!./src/form.class.2.1.js').default}
+      lang="jsx"
+      focus="15:25"
+    />
+  </Step>
+  <Step>
+    <FormLoader version="class.2.1" />
+    <Code
+      code={require('!!raw-loader!./src/form.class.2.1.js').default}
+      lang="jsx"
+      focus="9:12"
+    />
+  </Step>
+</CodeSurferColumnLayout>
 
-```js subtitle="New code is highlighted by default"
-function helloFactory() {
-  return name => {
-    console.log("hello " + name);
-  };
-}
+---
 
-function hello(name) {
-  console.log("hello " + name);
-}
+<CodeSurferColumnLayout>
+  <Step subtitle="It starts pretty simple, but...">
+    <Code
+      code={require('!!raw-loader!./src/form.class.2.1.js').default}
+      lang="jsx"
+    />
+  </Step>
+  <Step subtitle="once we add all the functionality it fills up quickly">
+    <Code
+      code={require('!!raw-loader!./src/form.class.1.js').default}
+      lang="jsx"
+    />
+  </Step>
+</CodeSurferColumnLayout>
 
-hello("world");
-```
+---
 
-```js subtitle="Adding more code so I can show you how the zoom works"
-function helloFactoryBuilder() {
-  return () => () => name => {
-    console.log("hello " + name);
-  };
-}
+Now let's refactor that using hooks
 
-function helloBuilder() {
-  return name => {
-    console.log("hello " + name);
-  };
-}
+---
 
-function helloFactory() {
-  return name => {
-    console.log("hello " + name);
-  };
-}
+<CodeSurferColumnLayout>
+  <Step>
+    <Code
+      code={require('!!raw-loader!./src/form.class.1.js').default}
+      lang="jsx"
+    />
+  </Step>
+  <Step>
+    <Code
+      code={require('!!raw-loader!./src/form.hooks.0.js').default}
+      lang="jsx"
+    />
+  </Step>
+</CodeSurferColumnLayout>
 
-function hello(name) {
-  console.log("hello " + name);
-}
+---
 
-hello("world");
-```
+Enter the `useForm` hook
 
-```js 1:23
-function helloFactoryBuilder() {
-  return () => () => name => {
-    console.log("hello " + name);
-  };
-}
+---
 
-function helloBuilder() {
-  return name => {
-    console.log("hello " + name);
-  };
-}
+<CodeSurferColumnLayout>
+  <Step>
+    <Code
+      code={require(`!!raw-loader!./src/use-form.1.1.js`).default}
+      lang="jsx"
+    />
+  </Step>
+  <Step>
+    <Code
+      code={require(`!!raw-loader!./src/use-form.1.2.js`).default}
+      lang="jsx"
+    />
+  </Step>
+  <Step>
+    <Code
+      code={require(`!!raw-loader!./src/use-form.1.3.js`).default}
+      lang="jsx"
+    />
+  </Step>
+  <Step>
+    <Code
+      code={require(`!!raw-loader!./src/use-form.1.4.js`).default}
+      lang="jsx"
+    />
+  </Step>
+  <Step>
+    <Code
+      code={require(`!!raw-loader!./src/use-form.1.4.js`).default}
+      lang="jsx"
+      focus="11,13"
+    />
+  </Step>
+  <Step>
+    <Code
+      code={require(`!!raw-loader!./src/use-form.1.5.js`).default}
+      lang="jsx"
+    />
+  </Step>
+  <Step>
+    <Code
+      code={require(`!!raw-loader!./src/use-form.1.6.js`).default}
+      lang="jsx"
+    />
+  </Step>
+  <Step>
+    <Code
+      code={require(`!!raw-loader!./src/use-form.1.7.js`).default}
+      lang="jsx"
+    />
+  </Step>
+</CodeSurferColumnLayout>
 
-function helloFactory() {
-  return name => {
-    console.log("hello " + name);
-  };
-}
+---
 
-function hello(name) {
-  console.log("hello " + name);
-}
+<CodeSurferColumnLayout>
+  <Step>
+    <Code
+      code={require(`!!raw-loader!./src/form.hooks.0.js`).default}
+      lang="jsx"
+      focus="13:52"
+    />
+  </Step>
+  <Step>
+    <Code
+      code={require(`!!raw-loader!./src/form.use-form.0.js`).default}
+      lang="jsx"
+      focus="14:23"
+    />
+  </Step>
+</CodeSurferColumnLayout>
 
-hello("world");
-```
+---
 
-</CodeSurferLayout>
+<CodeSurferColumnLayout>
+  <Step>
+    <Code
+      code={require(`!!raw-loader!./src/form.hooks.0.js`).default}
+      lang="jsx"
+      focus="59:71"
+    />
+  </Step>
+  <Step>
+    <Code
+      code={require(`!!raw-loader!./src/form.use-form.0.js`).default}
+      lang="jsx"
+      focus="30:32"
+    />
+  </Step>
+</CodeSurferColumnLayout>
+
+---
+
+<CodeSurferColumnLayout>
+  <Step>
+    <Code
+      code={require(`!!raw-loader!./src/form.hooks.0.js`).default}
+      lang="jsx"
+    />
+    <Code
+      code={require(`!!raw-loader!./src/form.use-form.0.js`).default}
+      lang="jsx"
+    />
+  </Step>
+</CodeSurferColumnLayout>
